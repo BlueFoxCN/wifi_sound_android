@@ -1,0 +1,13 @@
+com.bluefox.GaussPlayActivity
+com.bluefox.GaussPlayActivity: GaussPlayActivity()
+com.bluefox.WifiSound
+com.bluefox.WifiSound: GaussRecorderActivity()
+com.bluefox.Speex
+com.bluefox.Speex: int open(int)
+com.bluefox.Speex: int getFrameSize()
+com.bluefox.Speex: int decode(byte[],short[],int)
+com.bluefox.Speex: int encode(short[],int,byte[],int)
+com.bluefox.Speex: void close()
+com.bluefox.SpeexTesttActivity
+com.sinpo.xnfc.NFCard
+com.sinpo.xnfc.NFCard: NFCard()

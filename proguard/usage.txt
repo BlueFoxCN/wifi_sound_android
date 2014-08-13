@@ -1,0 +1,241 @@
+com.command_set.ReadLog
+com.command_set.RemoveLog
+com.command_set.WriteCycleInfo
+com.jhr.encordio.AudioFileWriter:
+    public abstract void close()
+    public abstract void open(java.io.File)
+    public abstract void open(java.lang.String)
+    public abstract void writeHeader(java.lang.String)
+    public abstract void writePacket(byte[],int,int)
+    234:236:public static void writeShort(java.io.DataOutput,short)
+    247:251:public static void writeInt(java.io.DataOutput,int)
+    262:264:public static void writeShort(java.io.OutputStream,short)
+    275:279:public static void writeInt(java.io.OutputStream,int)
+    290:298:public static void writeLong(java.io.OutputStream,long)
+    308:310:public static void writeShort(byte[],int,int)
+com.jhr.encordio.OggCrc:
+    72:72:public OggCrc()
+com.jhr.encordio.OggSpeexWriter:
+    public static final int PACKETS_PER_OGG_PAGE
+    152:153:public void setSerialNumber(int)
+com.jhr.encordio.SpeexRecorderPlayer:
+    private java.lang.String fileName
+    private com.bluefox.SpeexDecoder speexdec
+    public byte[] totData
+    boolean isPlay
+    22:32:public SpeexRecorderPlayer(java.lang.String,byte[])
+    35:39:public void startPlay()
+    18:18:static synthetic com.bluefox.SpeexDecoder access$0(com.jhr.encordio.SpeexRecorderPlayer)
+com.jhr.encordio.SpeexRecorderPlayer$RecordPlayThread
+com.bluefox.GaussPlayActivity:
+    private static final java.lang.String TAG
+    257:268:private java.lang.String bytesToHexString(byte[])
+com.bluefox.WifiSound:
+    public static final int STOPPED
+    private static final java.lang.String TAG
+    329:340:private java.lang.String bytesToHexString(byte[])
+com.bluefox.Speex:
+    private static final int DEFAULT_COMPRESSION
+    public native int getFrameSize()
+    public native void close()
+com.bluefox.SpeexDecoder:
+    protected java.lang.String srcFile
+    57:58:public void addOnMetadataListener(android.os.RecoverySystem$ProgressListener)
+    61:62:public synchronized void setPaused(boolean)
+    65:65:public synchronized boolean isPaused()
+    149:169:private boolean readSpeexHeader(byte[],int,int,boolean)
+    177:177:protected static int readInt(byte[],int)
+    184:184:protected static long readLong(byte[],int)
+    193:193:protected static int readShort(byte[],int)
+com.bluefox.SpeexRecorder:
+    private static final int frequency
+    private static final int audioEncoding
+    19:22:public SpeexRecorder(java.lang.String,com.bluefox.GaussPlayActivity)
+    84:90:public void setRecording(boolean)
+    93:93:public boolean isRecording()
+com.bluefox.SpeexRecorderRecorder:
+    private static final int frequency
+    private static final int audioEncoding
+    79:79:public boolean isRecording()
+com.bluefox.SpeexTesttActivity:
+    public static final int STOPPED
+    public static final int RECORDING
+    31:60:public void onClick(android.view.View)
+com.util.CRC
+com.util.Converter
+com.util.DES
+com.util.Encryption:
+    11:11:public Encryption()
+com.sinpo.xnfc.BuildConfig
+com.sinpo.xnfc.NFCard$ContentType:
+    1:1:public static com.sinpo.xnfc.NFCard$ContentType[] values()
+    1:1:public static com.sinpo.xnfc.NFCard$ContentType valueOf(java.lang.String)
+com.sinpo.xnfc.R
+com.sinpo.xnfc.R$attr
+com.sinpo.xnfc.R$color
+com.sinpo.xnfc.R$dimen
+com.sinpo.xnfc.R$drawable
+com.sinpo.xnfc.R$id
+com.sinpo.xnfc.R$layout
+com.sinpo.xnfc.R$menu
+com.sinpo.xnfc.R$string
+com.sinpo.xnfc.R$style
+com.sinpo.xnfc.R$xml
+com.sinpo.xnfc.Util:
+    22:23:private Util()
+    26:26:public static byte[] toBytes(int)
+    53:58:public static varargs int toInt(byte[])
+com.sinpo.xnfc.card.CardManager:
+    private static final java.lang.String SP
+    29:29:public CardManager()
+com.sinpo.xnfc.card.OctopusCard:
+    private static final int SYS_SZT
+    private static final int SRV_SZT
+    private static final int SYS_OCTOPUS
+    private static final int SRV_OCTOPUS
+    25:25:OctopusCard()
+com.sinpo.xnfc.card.VicinityCard:
+    private static final int SYS_UNKNOWN
+    private static final int SYS_SZLIB
+    private static final int DEP_SZLIB_CENTER
+    private static final int DEP_SZLIB_NANSHAN
+    private static final int SRV_USER
+    private static final int SRV_BOOK
+    public static final int SW1_OK
+    24:24:VicinityCard()
+com.sinpo.xnfc.card.pboc.BeijingMunicipal:
+    private static final int SFI_EXTRA_LOG
+    private static final int SFI_EXTRA_CNT
+com.sinpo.xnfc.card.pboc.HardReader:
+    public static final byte TMPL_PDR
+    public static final byte TMPL_PDE
+com.sinpo.xnfc.card.pboc.PbocCard:
+    protected static final int MAX_LOG
+    protected static final int SFI_EXTRA
+    protected static final int SFI_LOG
+    protected static final byte TRANS_CSU
+    protected static final byte TRANS_CSU_CPX
+com.sinpo.xnfc.card.pboc.WuhanTong:
+    private static final int SFI_INFO
+    private static final int SFI_SERL
+com.sinpo.xnfc.tech.FeliCa:
+    public static final byte CMD_POLLING
+    public static final byte RSP_POLLING
+    public static final byte CMD_REQUEST_SERVICE
+    public static final byte RSP_REQUEST_SERVICE
+    public static final byte CMD_REQUEST_RESPONSE
+    public static final byte RSP_REQUEST_RESPONSE
+    public static final byte CMD_READ_WO_ENCRYPTION
+    public static final byte RSP_READ_WO_ENCRYPTION
+    public static final byte CMD_WRITE_WO_ENCRYPTION
+    public static final byte RSP_WRITE_WO_ENCRYPTION
+    public static final byte CMD_SEARCH_SERVICECODE
+    public static final byte RSP_SEARCH_SERVICECODE
+    public static final byte CMD_REQUEST_SYSTEMCODE
+    public static final byte RSP_REQUEST_SYSTEMCODE
+    public static final byte CMD_AUTHENTICATION1
+    public static final byte RSP_AUTHENTICATION1
+    public static final byte CMD_AUTHENTICATION2
+    public static final byte RSP_AUTHENTICATION2
+    public static final byte CMD_READ
+    public static final byte RSP_READ
+    public static final byte CMD_WRITE
+    public static final byte RSP_WRITE
+    public static final int SYS_ANY
+    public static final int SYS_FELICA_LITE
+    public static final int SYS_COMMON
+    public static final int SRV_FELICA_LITE_READONLY
+    public static final int SRV_FELICA_LITE_READWRITE
+    public static final int STA1_NORMAL
+    public static final int STA1_ERROR
+    public static final int STA2_NORMAL
+    public static final int STA2_ERROR_LENGTH
+    public static final int STA2_ERROR_FLOWN
+    public static final int STA2_ERROR_MEMORY
+    public static final int STA2_ERROR_WRITELIMIT
+    39:39:public int size()
+com.sinpo.xnfc.tech.FeliCa$Block
+com.sinpo.xnfc.tech.FeliCa$BlockListElement
+com.sinpo.xnfc.tech.FeliCa$Command:
+    278:279:public FeliCa$Command(byte[])
+    281:291:public varargs FeliCa$Command(byte,byte[])
+    300:305:public varargs FeliCa$Command(byte,byte[],byte[])
+com.sinpo.xnfc.tech.FeliCa$IDm:
+    59:59:public final java.lang.String getManufactureCode()
+    63:63:public final java.lang.String getCardIdentification()
+    67:72:public boolean isEmpty()
+com.sinpo.xnfc.tech.FeliCa$MemoryConfigurationBlock
+com.sinpo.xnfc.tech.FeliCa$PMm:
+    84:84:public final java.lang.String getIcCode()
+    88:88:public final java.lang.String getMaximumResponseTime()
+com.sinpo.xnfc.tech.FeliCa$PollingResponse
+com.sinpo.xnfc.tech.FeliCa$ReadResponse:
+    382:382:public int getStatusFlag2()
+com.sinpo.xnfc.tech.FeliCa$Response:
+    340:340:public com.sinpo.xnfc.tech.FeliCa$IDm getIDm()
+com.sinpo.xnfc.tech.FeliCa$Service
+com.sinpo.xnfc.tech.FeliCa$ServiceCode:
+    public static final int T_UNKNOWN
+    public static final int T_RANDOM
+    public static final int T_CYCLIC
+    public static final int T_PURSE
+    124:124:public boolean isEncrypt()
+    128:129:public boolean isWritable()
+    133:133:public int getAccessAttr()
+    137:141:public int getDataType()
+com.sinpo.xnfc.tech.FeliCa$SystemCode:
+    96:97:public FeliCa$SystemCode(byte[])
+    100:100:public int toInt()
+com.sinpo.xnfc.tech.FeliCa$Tag:
+    private boolean isFeliCaLite
+    444:445:public boolean checkFeliCaLite()
+    449:449:public boolean isFeliCaLite()
+    453:460:public com.sinpo.xnfc.tech.FeliCa$PollingResponse polling(int)
+    464:470:public com.sinpo.xnfc.tech.FeliCa$PollingResponse polling()
+    474:483:public final com.sinpo.xnfc.tech.FeliCa$SystemCode[] getSystemCodeList()
+    487:503:public com.sinpo.xnfc.tech.FeliCa$ServiceCode[] getServiceCodeList()
+    507:514:private byte[] searchServiceCode(int)
+    526:530:public com.sinpo.xnfc.tech.FeliCa$ReadResponse readWithoutEncryption(byte)
+    536:542:public com.sinpo.xnfc.tech.FeliCa$WriteResponse writeWithoutEncryption(com.sinpo.xnfc.tech.FeliCa$ServiceCode,byte,byte[])
+    547:556:public com.sinpo.xnfc.tech.FeliCa$WriteResponse writeWithoutEncryption(byte,byte[])
+    560:561:public com.sinpo.xnfc.tech.FeliCa$MemoryConfigurationBlock getMemoryConfigBlock()
+com.sinpo.xnfc.tech.FeliCa$WriteResponse
+com.sinpo.xnfc.tech.Iso7816:
+    public static final short SW_NO_ERROR
+    public static final short SW_BYTES_REMAINING_00
+    public static final short SW_WRONG_LENGTH
+    public static final short SW_SECURITY_STATUS_NOT_SATISFIED
+    public static final short SW_FILE_INVALID
+    public static final short SW_DATA_INVALID
+    public static final short SW_CONDITIONS_NOT_SATISFIED
+    public static final short SW_COMMAND_NOT_ALLOWED
+    public static final short SW_APPLET_SELECT_FAILED
+    public static final short SW_WRONG_DATA
+    public static final short SW_FUNC_NOT_SUPPORTED
+    public static final short SW_FILE_NOT_FOUND
+    public static final short SW_RECORD_NOT_FOUND
+    public static final short SW_INCORRECT_P1P2
+    public static final short SW_WRONG_P1P2
+    public static final short SW_CORRECT_LENGTH_00
+    public static final short SW_INS_NOT_SUPPORTED
+    public static final short SW_CLA_NOT_SUPPORTED
+    public static final short SW_UNKNOWN
+    public static final short SW_FILE_FULL
+    40:40:public boolean match(byte[])
+    59:65:public boolean match(short)
+com.sinpo.xnfc.tech.Iso7816$BerT:
+    public static final byte TMPL_FCP
+    public static final byte TMPL_FMD
+    public static final byte TMPL_FCI
+    165:167:public Iso7816$BerT(short)
+com.sinpo.xnfc.tech.Iso7816$BerTLV:
+    261:261:public static java.util.ArrayList readList(com.sinpo.xnfc.tech.Iso7816)
+    265:276:public static java.util.ArrayList readList(byte[])
+    306:320:public com.sinpo.xnfc.tech.Iso7816$BerTLV getChild(int)
+com.sinpo.xnfc.tech.Iso7816$Response:
+    96:96:public byte getSw1()
+    100:100:public byte getSw2()
+com.sinpo.xnfc.tech.Iso7816$Tag:
+    338:345:public com.sinpo.xnfc.tech.Iso7816$Response verify()
+    349:360:public com.sinpo.xnfc.tech.Iso7816$Response initPurchase(boolean)
+    408:415:public com.sinpo.xnfc.tech.Iso7816$Response readData(int)

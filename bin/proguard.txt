@@ -1,0 +1,9 @@
+# view AndroidManifest.xml #generated:60
+-keep class com.bluefox.GaussPlayActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:62
+-keep class com.bluefox.WifiSound { <init>(...); }
+
+# view AndroidManifest.xml #generated:24
+-keep class com.sinpo.xnfc.NFCard { <init>(...); }
+
