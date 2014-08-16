@@ -11,13 +11,16 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
+import android.os.SystemClock;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.io.DataOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,6 +29,7 @@ import java.io.OutputStream;
 import java.net.DatagramSocket;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.nio.ByteBuffer;
 import java.util.ArrayList;
 
 public class WifiSound extends Activity implements OnClickListener {
@@ -49,7 +53,14 @@ public class WifiSound extends Activity implements OnClickListener {
     String ipAddr = "";
 
 	public byte[] dataRecord;
-	public void onClick(View v) {
+
+    public native int open(int compression);
+    public native int getFrameSize();
+    public native int decode(byte encoded[], short lin[], int size);
+    public native int encode(short lin[], int offset, byte encoded[], int size);
+    public native void close();
+
+    public void onClick(View v) {
 		if (v == exitButton) {
 			System.exit(0);
 		} else if (v == toggleWifiButton) {
@@ -118,9 +129,57 @@ public class WifiSound extends Activity implements OnClickListener {
         setRecordTimeButton.setOnClickListener(this);
         fileButton.setOnClickListener(this);
 
+        System.loadLibrary("speex");
+
+        open(8);
+
+        String root = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC).toString();
+        File myDir = new File(root + "/my_sounds");
+        myDir.mkdirs();
+        File file = new File (myDir, "f_1408185089");
+        File newFile = new File(myDir, "wav.wav");
+        FileInputStream fIn;
+        FileOutputStream fOut;
+        byte[] data = new byte[1000];
+        short[] wavData = new short[10000];
+        int readNum = 0;
+        int count = 0;
+        try {
+            fIn = new FileInputStream(file);
+            fOut = new FileOutputStream(newFile);
+
+            int len = (int)file.length();
+
+            WaveHeader wavHeader = new WaveHeader((short)1, (short)1, 48000, (short)16, len / 38 * 320);
+            wavHeader.write(fOut);
+            int totNum = 0;
+            readNum = fIn.read(data, 0, 38);
+            byte[] tempByteAry = new byte[320];
+            while (readNum > 0) {
+                totNum += readNum;
+                count = decode(data, wavData, readNum);
+
+                for (int i = 0; i < count; i++) {
+                    tempByteAry[2 * i] = (byte)(wavData[i] & 0xFF);
+                    tempByteAry[2 * i + 1] = (byte)(wavData[i] >> 8);
+                }
+
+                fOut.write(tempByteAry);
+                readNum = fIn.read(data, 0, 38);
+            }
+            fIn.close();
+            fOut.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
         m1 = new Handler();
         mScan.run();
         mRecvFile.run();
+
 	}
 
     Runnable mScan = new Runnable() {
@@ -218,6 +277,7 @@ public class WifiSound extends Activity implements OnClickListener {
         }
 
         protected void onPostExecute(String value) {
+            SystemClock.sleep(1000);
             mRecvFile.run();
         }
     }

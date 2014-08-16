@@ -49,6 +49,7 @@ LOCAL_SRC_FILES :=  \
 ./libspeex/vq.c \
 ./libspeex/window.c \
 ./libogg/bitwise.c \
-./libogg/framing.c
+./libogg/framing.c \
+./speex_jni.cpp \
   
 include $(BUILD_SHARED_LIBRARY)
